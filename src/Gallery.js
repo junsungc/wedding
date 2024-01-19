@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Gallery.css'; // 스타일 파일을 불러옵니다.
 
+const ImageComponent = ({ cell }) => (
+  <img src={`/images/gallery/${cell}.jpg`} alt="An example image" />
+);
+
+const MemoizedImage = React.memo(ImageComponent);
+
 const Gallery = () => {
-  // 4x4 그리드의 데이터
+  const maxImageId = 6;
+
+  const [currentImageId, setCurrentImageId] = useState(1);
+
+  const handlePrevImage = () => {
+    const prevImageId = currentImageId > 1 ? currentImageId - 1 : maxImageId;
+    setCurrentImageId(prevImageId);
+  };
+
+  const handleNextImage = () => {
+    const nextImageId = currentImageId < maxImageId ? currentImageId + 1 : 1;
+    setCurrentImageId(nextImageId);
+  };
+
   const gridData = [
     [1, 2, 3, 4],
     [5, 6, 7, 8],
@@ -24,10 +43,13 @@ const Gallery = () => {
         <div key={rowIndex} className="grid-row">
           {row.map((cell, colIndex) => (
             <div key={colIndex} className="grid-cell">
-              <a href={`/images/gallery/${cell}.jpg`} target="_blank">
-                <img src={`/images/gallery/${cell}.jpg`} alt="An example image" />
+              <button onClick={handlePrevImage}>Previous</button>
+              <a href={`/images/gallery/${cell}.jpg`} >
+                <MemoizedImage cell={cell} />
               </a>
+              <button onClick={handleNextImage}>Next</button>
             </div>
+
           ))}
         </div>
       ))}
@@ -35,4 +57,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default React.memo(Gallery);
