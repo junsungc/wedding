@@ -1,0 +1,26 @@
+.grid-container {
+    max-width: 800px;
+    img {
+        width: 190px;
+        height: 190px;
+        object-fit: cover;     
+        text-align: left;
+    }
+}
+
+.grid-row {
+    display: flex;
+}
+
+.grid-cell {
+    width: 200px;
+    height: 200px;
+    flex: 1;
+    text-align: center;
+}
+
+.sub-title {
+    text-align: center;
+    font-size: 20px;
+    padding : 20px;
+}
