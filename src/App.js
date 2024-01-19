@@ -2,6 +2,14 @@ import './App.css';
 import Gallery from './Gallery.js'
 import Movie from './Movie.js'
 import CountdownTimer from './CountdownTimer.js'
+import React from 'react';
+
+const ImageComponent = ({ num }) => (
+  <img src={`/images/${num}.png`} alt="An example image" />
+);
+
+const MemoizedImage = React.memo(ImageComponent);
+
 
 function App() {
   return (
@@ -9,26 +17,26 @@ function App() {
       {/* 사진 추가 */}
       <CountdownTimer></CountdownTimer>
       <div className="image-wrapper">
-        <img src={'/images/1.png'} alt="Image 1" />
+        <MemoizedImage num={1}></MemoizedImage>
       </div>
       <div className="image-wrapper">
-        <img src={'/images/2.png'} alt="Image 1" />
+        <MemoizedImage num={2}></MemoizedImage>
       </div>
       <div className="image-wrapper">
-        <img src={'/images/3.png'} alt="Image 1" />
+        <MemoizedImage num={3}></MemoizedImage>
       </div>
       <div className="image-wrapper">
-        <img src={'/images/4.png'} alt="Image 1" />
+        <MemoizedImage num={4}></MemoizedImage>
       </div>
 
       <Gallery></Gallery>
       <Movie></Movie>
 
       <div className="image-wrapper">
-        <img src={'/images/5.png'} alt="Image 1" />
+        <MemoizedImage num={5}></MemoizedImage>
       </div>
       <div className="image-wrapper">
-        <img src={'/images/6.png'} alt="Image 1" />
+        <MemoizedImage num={6}></MemoizedImage>
       </div>
     </div>
   );
