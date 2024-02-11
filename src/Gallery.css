@@ -1,13 +1,6 @@
 .grid-container {
     max-width: 800px;
 
-    img {
-        width: 190px;
-        height: 190px;
-        object-fit: cover;
-        text-align: left;
-        image-rendering: auto;
-    }
 }
 
 .grid-row {
@@ -21,25 +14,11 @@
     text-align: center;
 }
 
-.sub-title {
-    text-align: center;
-    font-size: 20px;
-    padding: 20px;
-}
-
-
 /* 반응형 스타일 */
 @media only screen and (max-width: 800px) {
     .grid-container {
         max-width: 100%;
 
-        img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            text-align: left;
-            image-rendering: auto;
-        }
     }
 
 
