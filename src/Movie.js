@@ -4,7 +4,10 @@ const Movie = () => {
   return (
     <div>
       <div className='title'>MOVIE</div>
-      <video width="800" controls>
+      <div className='sub-title'>
+        준성이 직접 편집한 추억 영상
+      </div>
+      <video controls>
         <source src={'/movie.mp4'} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
